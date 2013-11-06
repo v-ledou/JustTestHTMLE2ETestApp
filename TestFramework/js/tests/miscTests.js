@@ -59,8 +59,8 @@ function defineMiscTestsNamespace() {
         return filter;
     }
 
-    //tests.push(createFilterCaptureTest(true));
-    //tests.push(createFilterCaptureTest(false));
+    tests.push(createFilterCaptureTest(true));
+    tests.push(createFilterCaptureTest(false));
 
     tests.push(new zumo.Test('Filter can bypass service', function (test, done) {
         var client = zumo.getClient();
