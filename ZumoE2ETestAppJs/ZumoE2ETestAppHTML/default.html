@@ -122,32 +122,6 @@
                 this.textContent = sText;
             });
         }
-
-        if (!Function.prototype.bind) {
-            Function.prototype.bind = function (boundThis) {
-                var _slice = [].slice,
-                    targetFunction = this,
-                    boundArgs = _slice.call(arguments, 1),
-                    //A = [].slice.call(arguments, 1),
-                    //L = targetFunction.length,
-                    F = function () {
-                        if (this instanceof F) {
-                            var obj,
-                                ret,
-                                temp = function () { };
-                            temp.prototype = targetFunction.prototype;
-                            obj = new temp;
-                            ret = targetFunction.apply(obj, boundArgs.concat(_slice.call(arguments)));
-                            return typeof ret == 'object' && ret !== null ? ret : obj;
-                        }
-                        return targetFunction.apply(boundThis, boundArgs.concat(_slice.call(arguments)));
-                    };
-                //F.length = Math.max(L - A.length, 0);
-                //F.prototype = undefined;
-                return F;
-            };
-        }
-
     </script>
 
 </body>
