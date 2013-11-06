@@ -11,20 +11,20 @@ function defineMiscTestsNamespace() {
     var roundTripTableName = 'w8jsRoundTripTable';
     var paramsTableName = 'ParamsTestTable';
 
-    tests.push(new zumo.Test('Filter does not modify client', function (test, done) {
-        var client = zumo.getClient();
-        var filtered = client.withFilter(function (request, next, callback) {
-            throw "This is an error";
-        });
-        var table = client.getTable(roundTripTableName);
-        table.take(1).read().done(function (items) {
-            test.addLog('Retrieved data successfully: ', items);
-            done(true);
-        }, function (err) {
-            test.addLog('Unexpected error: ', err);
-            done(false);
-        });
-    }));
+    //tests.push(new zumo.Test('Filter does not modify client', function (test, done) {
+    //    var client = zumo.getClient();
+    //    var filtered = client.withFilter(function (request, next, callback) {
+    //        throw "This is an error";
+    //    });
+    //    var table = client.getTable(roundTripTableName);
+    //    table.take(1).read().done(function (items) {
+    //        test.addLog('Retrieved data successfully: ', items);
+    //        done(true);
+    //    }, function (err) {
+    //        test.addLog('Unexpected error: ', err);
+    //        done(false);
+    //    });
+    //}));
 
     var createLoggingFilter = function () {
         var filter = function (request, next, callback) {
