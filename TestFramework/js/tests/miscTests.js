@@ -46,6 +46,7 @@ function defineMiscTestsNamespace() {
                 filter.error = error;
                 filter.response = response;
                 if (!error && response) {
+                    var serverVersion = null;
                     //var serverVersion = response.getResponseHeader('x-zumo-version');
                     if (serverVersion) {
                         zumo.util.globalTestParams[zumo.constants.SERVER_VERSION_KEY] = serverVersion;
