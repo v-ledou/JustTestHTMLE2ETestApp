@@ -325,9 +325,9 @@ function defineQueryTestsNamespace() {
     //    }));
     //}
 
-    tests.push(createQueryTest('String id: query by id',
-        function (table) { return table.where(function () { return this.id.indexOf('Movie 12') === 0; }); },
-        function (item, index) { return index >= 120 && index <= 129; }, {}, true));
+    //tests.push(createQueryTest('String id: query by id',
+    //    function (table) { return table.where(function () { return this.id.indexOf('Movie 12') === 0; }); },
+    //    function (item, index) { return index >= 120 && index <= 129; }, {}, true));
 
     // Now that all server-side tests have been added, will add one test to validate the server-side script
     var getWhereClauseCreator = getWhereClauseCreatorHeader + getWhereClauseSwitchBody + getWhereClauseCreatorFooter;
