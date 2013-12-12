@@ -310,20 +310,20 @@ function defineQueryTestsNamespace() {
     //    function (item) { return item.Title > someVariable; }, { isNegativeClientValidation: true });
     //addQueryTest('(Neg) Very large "top"', null, null, { top: 1001, isNegativeServerValidation: true });
     
-    for (i = -1; i <= 0; i++) {
-        var id = i;
-        tests.push(new zumo.Test('(Neg) invalid offset: ' + id, function (test, done) {
-            var client = zumo.getClient();
-            var table = client.getTable(tableName);
-            table.lookup(id).done(function (item) {
-                test.addLog('Error, lookup for id = ' + id + ' succeeded, it should have failed. Item = ' + JSON.stringify(item));
-                done(false);
-            }, function (err) {
-                test.addLog('Got expected error: ' + JSON.stringify(err));
-                done(true);
-            });
-        }));
-    }
+    //for (i = -1; i <= 0; i++) {
+    //    var id = i;
+    //    tests.push(new zumo.Test('(Neg) invalid offset: ' + id, function (test, done) {
+    //        var client = zumo.getClient();
+    //        var table = client.getTable(tableName);
+    //        table.lookup(id).done(function (item) {
+    //            test.addLog('Error, lookup for id = ' + id + ' succeeded, it should have failed. Item = ' + JSON.stringify(item));
+    //            done(false);
+    //        }, function (err) {
+    //            test.addLog('Got expected error: ' + JSON.stringify(err));
+    //            done(true);
+    //        });
+    //    }));
+    //}
 
     tests.push(createQueryTest('String id: query by id',
         function (table) { return table.where(function () { return this.id.indexOf('Movie 12') === 0; }); },
