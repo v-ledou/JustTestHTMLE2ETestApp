@@ -105,15 +105,15 @@ function defineRoundTripTestsNamespace() {
     var itemComplex = ['abc', 'def', 'ghi'];
 
     var differentIds = { ascii: 'id-', latin: 'ãéìôü ÇñÑ', arabic: 'الكتاب على الطاولة', chinese: '这本书在桌子上', hebrew: 'הספר הוא על השולחן' };
-    tests.push(createStringIdRoundTripTest('String id - no id on insert, multiple properties', { name: itemName, number: itemNumber, bool: itemBool, date1: zumo.util.randomDate(), complex: itemComplex }));
-    for (var t in differentIds) {
-        tests.push(createStringIdRoundTripTest('String id - ' + t + ' id on insert, multiple properties', { id: differentIds[t], name: t, number: itemNumber, bool: itemBool, date1: zumo.util.randomDate(), complex: itemComplex }));
-    }
+//    tests.push(createStringIdRoundTripTest('String id - no id on insert, multiple properties', { name: itemName, number: itemNumber, bool: itemBool, date1: zumo.util.randomDate(), complex: itemComplex }));
+    //for (var t in differentIds) {
+    //    tests.push(createStringIdRoundTripTest('String id - ' + t + ' id on insert, multiple properties', { id: differentIds[t], name: t, number: itemNumber, bool: itemBool, date1: zumo.util.randomDate(), complex: itemComplex }));
+    //}
 
-    var invalidIds = ['.', '..', 'control\u0010characters', 'large id' + Array(260).join('*')];
-    invalidIds.forEach(function (id) {
-        tests.push(createNegativeRoundTripTest('(Neg) String id - insert with invalid id: ' + (id.length > 30 ? (id.substring(0, 30) + '...') : id), { id: id, name: 'hello' }));
-    });
+    //var invalidIds = ['.', '..', 'control\u0010characters', 'large id' + Array(260).join('*')];
+    //invalidIds.forEach(function (id) {
+    //    tests.push(createNegativeRoundTripTest('(Neg) String id - insert with invalid id: ' + (id.length > 30 ? (id.substring(0, 30) + '...') : id), { id: id, name: 'hello' }));
+    //});
 
     var currentIEVersion = zumo.getIEBrowserVersion(); // get IE8 version ...
     function dateReviver(key, value) {
